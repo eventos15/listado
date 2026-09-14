@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lista de invitados y confirmaciones">
+  <title>Lista de invitados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Confirmaciones</p>
+        <h1>Lista de invitados</h1>
+      </div>
+      <button id="refresh-button" type="button">Actualizar <span aria-hidden="true">↻</span></button>
+    </header>
+
+    <section class="summary" aria-label="Resumen de confirmaciones">
+      <div><span>Total</span><strong id="total-count">0</strong></div>
+      <div><span>Confirman</span><strong id="yes-count">0</strong></div>
+      <div><span>No asisten</span><strong id="no-count">0</strong></div>
+      
+    </section>
+
+    <section class="list-panel" aria-labelledby="list-title">
+      <div class="list-toolbar">
+        <h2 id="list-title">Respuestas recibidas</h2>
+        <div class="filters">
+          <label for="search">Buscar</label>
+          <input id="search" type="search" placeholder="Nombre o apellido" autocomplete="off">
+          <label for="attendance-filter">Asistencia</label>
+          <select id="attendance-filter">
+            <option value="todos">Todas</option>
+            <option value="si">Confirman</option>
+            <option value="no">No asisten</option>
+          </select>
+        </div>
+      </div>
+      <p id="status" class="status" role="status">Cargando confirmaciones...</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Invitado</th>
+              <th scope="col">Asistencia</th>
+              <th scope="col">Fecha</th>
+            </tr>
+          </thead>
+          <tbody id="guest-list"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
